@@ -3,7 +3,6 @@ import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 const education = [
   { icon: '📘', title: 'B.Tech Computer Science', detail: 'Specialization in AI & ML' },
-  { icon: '🏆', title: 'Six Sigma Green Belt', detail: 'Process optimization & analytics' },
   { icon: '🔬', title: 'Research Publication', detail: 'Machine Learning in Healthcare' },
 ];
 
