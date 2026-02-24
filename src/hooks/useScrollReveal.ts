@@ -12,16 +12,28 @@ export function useScrollReveal() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
           }
         });
       },
       { threshold: 0.1 }
     );
 
-    const children = el.querySelectorAll('.reveal');
-    children.forEach((child) => observer.observe(child));
+    const observe = () => {
+      const children = el.querySelectorAll('.reveal:not(.visible)');
+      children.forEach((child) => observer.observe(child));
+    };
 
-    return () => observer.disconnect();
+    observe();
+
+    // Re-observe on DOM changes (React re-renders)
+    const mutation = new MutationObserver(observe);
+    mutation.observe(el, { childList: true, subtree: true });
+
+    return () => {
+      observer.disconnect();
+      mutation.disconnect();
+    };
   }, []);
 
   return ref;

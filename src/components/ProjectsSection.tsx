@@ -60,7 +60,7 @@ const ProjectsSection = () => {
           {projects.map((project, i) => (
             <div
               key={i}
-              className={`reveal glass-panel rounded-lg p-8 transition-all duration-500 cursor-pointer ${
+              className={`reveal glass-panel rounded-lg p-8 transition-all duration-500 cursor-pointer hover:border-primary/30 ${
                 hoveredProject === i ? project.glowClass : ''
               }`}
               style={{ transitionDelay: `${i * 100}ms` }}
