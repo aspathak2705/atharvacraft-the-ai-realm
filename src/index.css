@@ -191,6 +191,179 @@
   box-shadow: 0 0 10px hsla(140, 60%, 45%, 0.5);
 }
 
+/* ========== NETHER GATEWAY ========== */
+
+/* Nether dimension background */
+.nether-dimension {
+  background:
+    radial-gradient(ellipse at 50% 100%, hsla(270, 60%, 15%, 0.4) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 0%, hsla(270, 80%, 10%, 0.3) 0%, transparent 50%),
+    hsl(225, 25%, 4%);
+}
+
+/* Lava cracks ground */
+.nether-ground {
+  background:
+    linear-gradient(180deg, transparent 0%, hsla(15, 95%, 50%, 0.05) 60%, hsla(15, 95%, 50%, 0.1) 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, black 100%);
+}
+
+/* Nether particles rising */
+.nether-particle {
+  animation: nether-rise linear infinite;
+}
+
+@keyframes nether-rise {
+  0% { transform: translateY(0) scale(1); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 0.6; }
+  100% { transform: translateY(-80vh) scale(0.3); opacity: 0; }
+}
+
+/* Ender Dragon orbit */
+.ender-dragon-orbit {
+  animation: dragon-fly 12s linear infinite;
+  display: inline-block;
+}
+
+@keyframes dragon-fly {
+  0% { transform: translateX(-120px) translateY(0); }
+  25% { transform: translateX(30vw) translateY(-15px); }
+  50% { transform: translateX(60vw) translateY(5px); }
+  75% { transform: translateX(80vw) translateY(-10px); }
+  100% { transform: translateX(calc(100vw + 120px)) translateY(0); }
+}
+
+.dragon-eye {
+  fill: hsl(270, 100%, 70%);
+  animation: dragon-eye-glow 2s ease-in-out infinite;
+}
+
+@keyframes dragon-eye-glow {
+  0%, 100% { fill: hsl(270, 100%, 70%); }
+  50% { fill: hsl(300, 100%, 80%); }
+}
+
+.dragon-wing-left {
+  transform-origin: 50px 14px;
+  animation: wing-flap-l 0.6s ease-in-out infinite;
+}
+.dragon-wing-right {
+  transform-origin: 60px 14px;
+  animation: wing-flap-r 0.6s ease-in-out infinite;
+}
+
+@keyframes wing-flap-l {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-15deg); }
+}
+@keyframes wing-flap-r {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(15deg); }
+}
+
+.dragon-flame {
+  fill: hsl(270, 80%, 60%);
+  animation: flame-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes flame-pulse {
+  0%, 100% { opacity: 0.3; r: 2; }
+  50% { opacity: 1; r: 4; }
+}
+
+/* Portal frame */
+.portal-obsidian-frame {
+  background: linear-gradient(135deg, hsl(270, 20%, 10%), hsl(270, 15%, 6%));
+  border: 3px solid hsl(270, 30%, 18%);
+  border-radius: 4px;
+  box-shadow:
+    inset 0 0 20px hsla(270, 60%, 20%, 0.5),
+    0 0 40px hsla(270, 80%, 50%, 0.15);
+}
+
+/* Portal swirl */
+.portal-swirl {
+  background: radial-gradient(ellipse, hsla(270, 80%, 55%, 0.6), hsla(270, 90%, 30%, 0.8));
+  animation: portal-pulse 3s ease-in-out infinite;
+}
+
+@keyframes portal-pulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+.portal-swirl-inner {
+  background:
+    conic-gradient(from 0deg, transparent, hsla(270, 100%, 70%, 0.4), transparent, hsla(280, 100%, 60%, 0.3), transparent);
+  animation: portal-spin 4s linear infinite;
+}
+
+@keyframes portal-spin {
+  to { transform: rotate(360deg); }
+}
+
+.portal-swirl-overlay {
+  background:
+    radial-gradient(circle at 30% 40%, hsla(270, 100%, 80%, 0.3), transparent 50%),
+    radial-gradient(circle at 70% 60%, hsla(290, 100%, 70%, 0.2), transparent 50%);
+  animation: portal-shimmer 5s ease-in-out infinite alternate;
+}
+
+@keyframes portal-shimmer {
+  0% { opacity: 0.5; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.05); }
+}
+
+.portal-light-rays {
+  background: radial-gradient(ellipse at center, hsla(270, 80%, 65%, 0.15), transparent 70%);
+  animation: rays-pulse 4s ease-in-out infinite;
+}
+
+@keyframes rays-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+/* Nether form panel */
+.nether-form-panel {
+  background: hsla(270, 25%, 8%, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid hsla(270, 60%, 45%, 0.3);
+  box-shadow:
+    0 0 30px hsla(270, 80%, 55%, 0.15),
+    inset 0 0 30px hsla(270, 60%, 30%, 0.1);
+}
+
+.nether-transmitting {
+  animation: transmit-pulse 0.5s ease-in-out infinite;
+  border-color: hsla(270, 80%, 65%, 0.6);
+}
+
+@keyframes transmit-pulse {
+  0%, 100% { box-shadow: 0 0 30px hsla(270, 80%, 55%, 0.3); }
+  50% { box-shadow: 0 0 60px hsla(270, 80%, 55%, 0.6), 0 0 100px hsla(270, 80%, 55%, 0.2); }
+}
+
+.nether-sent {
+  border-color: hsla(270, 80%, 65%, 0.5);
+  box-shadow: 0 0 50px hsla(270, 80%, 55%, 0.3);
+}
+
+/* Transmit button */
+.nether-transmit-btn {
+  background: linear-gradient(135deg, hsla(270, 65%, 40%, 0.8), hsla(270, 80%, 30%, 0.9));
+  border: 1px solid hsla(270, 80%, 55%, 0.4);
+  color: hsl(270, 100%, 90%);
+  box-shadow: 0 0 20px hsla(270, 80%, 55%, 0.2);
+}
+
+.nether-transmit-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, hsla(270, 70%, 45%, 0.9), hsla(270, 85%, 35%, 1));
+  box-shadow: 0 0 30px hsla(270, 80%, 55%, 0.4), 0 0 60px hsla(270, 80%, 55%, 0.15);
+  transform: translateY(-1px);
+}
+
 /* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 8px;
