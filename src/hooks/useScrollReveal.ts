@@ -11,7 +11,7 @@ export function useScrollReveal() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+            (entry.target as HTMLElement).setAttribute('data-revealed', 'true');
             observer.unobserve(entry.target);
           }
         });
@@ -19,21 +19,14 @@ export function useScrollReveal() {
       { threshold: 0.1 }
     );
 
-    const observe = () => {
-      const children = el.querySelectorAll('.reveal:not(.visible)');
-      children.forEach((child) => observer.observe(child));
-    };
+    const children = el.querySelectorAll('.reveal');
+    children.forEach((child) => {
+      const revealed = (child as HTMLElement).getAttribute('data-revealed');
+      if (revealed === 'true') return;
+      observer.observe(child);
+    });
 
-    observe();
-
-    // Re-observe on DOM changes (React re-renders)
-    const mutation = new MutationObserver(observe);
-    mutation.observe(el, { childList: true, subtree: true });
-
-    return () => {
-      observer.disconnect();
-      mutation.disconnect();
-    };
+    return () => observer.disconnect();
   }, []);
 
   return ref;
