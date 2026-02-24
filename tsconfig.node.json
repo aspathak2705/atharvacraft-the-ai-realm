@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "lib": ["ES2023"],
+    // keep the lib simple – we only need basic ES features for the config file
+    "lib": ["ESNext"],
     "module": "ESNext",
     "skipLibCheck": true,
 
@@ -16,7 +17,10 @@
     "strict": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    // disable automatic `@types/*` inclusion; it was picking up node/estree/etc
+    "types": []
   },
   "include": ["vite.config.ts"]
 }
