@@ -202,7 +202,7 @@ const ContactSection = () => {
                 {/* Social links */}
                 <div className="flex gap-3 pt-2">
                   <a
-                    href="www.linkedin.com/in/atharva-pathak-38b63b22b"
+                    href="https://www.linkedin.com/in/atharva-pathak-38b63b22b/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 text-center font-pixel text-[8px] px-3 py-3 bg-portal/10 border border-portal/20 text-portal rounded hover:bg-portal/20 transition-all tracking-wider"
